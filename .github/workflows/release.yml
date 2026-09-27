@@ -1,0 +1,55 @@
+name: Release Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Run Tests
+        run: ./gradlew testDebugUnitTest --no-daemon
+
+      - name: Build Release APK
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Package Release Artifacts
+        run: |
+          mkdir -p dist/apk dist/checksums dist/metadata
+          find app/build/outputs/apk/release -name "*.apk" -exec cp {} dist/apk/ \; || true
+          cd dist/apk
+          if ls *.apk 1> /dev/null 2>&1; then
+            sha256sum *.apk > ../checksums/SHA256SUMS.txt
+          fi
+          echo "${{ github.ref_name }}" > ../metadata/version.txt
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > ../metadata/build-info.txt
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: AI Mobile Studio ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            dist/apk/*
+            dist/checksums/SHA256SUMS.txt
+            dist/metadata/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

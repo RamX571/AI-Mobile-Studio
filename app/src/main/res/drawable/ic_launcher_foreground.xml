@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Window frame -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M24,28 h60 c3.31,0 6,2.69 6,6 v40 c0,3.31 -2.69,6 -6,6 H24 c-3.31,0 -6,-2.69 -6,-6 V34 c0,-3.31 2.69,-6 6,-6 z" />
+    <!-- Window title bar dots -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M26,34 a2.5,2.5 0 1,0 5,0 a2.5,2.5 0 1,0 -5,0" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M34,34 a2.5,2.5 0 1,0 5,0 a2.5,2.5 0 1,0 -5,0" />
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M42,34 a2.5,2.5 0 1,0 5,0 a2.5,2.5 0 1,0 -5,0" />
+    <!-- Terminal prompt symbol > -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="3.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M28,48 L37,55 L28,62" />
+    <!-- AI Sparkle / Star in top-right of inner window -->
+    <path
+        android:fillColor="#818CF8"
+        android:pathData="M73,43 C73,46.5 76.5,47.5 79,48 C76.5,48.5 73,49.5 73,53 C73,49.5 69.5,48.5 67,48 C69.5,47.5 73,46.5 73,43 Z" />
+    <!-- Code slash and bracket -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#F8FAFC"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M43,62 L52,48" />
+    <!-- Underline / cursor block -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M56,60 h10 v3 h-10 z" />
+</vector>

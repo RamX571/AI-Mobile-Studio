@@ -1,0 +1,6 @@
+{
+  "name": "AI Mobile Studio",
+  "description": "On-device AI coding workspace with Linux runtime, terminal, project management, code editor, multi-agent hub, web preview, and APK builder.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
